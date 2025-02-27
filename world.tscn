@@ -23,3 +23,13 @@ mesh = SubResource("QuadMesh_p8fr7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 position = Vector2(1, 102)
 shape = SubResource("RectangleShape2D_tgegt")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
+position = Vector2(825, 1007)
+mesh = SubResource("QuadMesh_p8fr7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(820, 1104)
+shape = SubResource("RectangleShape2D_tgegt")
