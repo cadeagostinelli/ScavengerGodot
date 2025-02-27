@@ -11,8 +11,8 @@ func _ready() -> void:
 	offset_bottom = 0
 	
 	# Make sure it fills the whole screen
-	grow_horizontal = 2  # GROW_DIRECTION_BOTH
-	grow_vertical = 2    # GROW_DIRECTION_BOTH
+	grow_horizontal = 2
+	grow_vertical = 2 
 	
 	# Center the VBoxContainer
 	var vbox = $VBoxContainer
