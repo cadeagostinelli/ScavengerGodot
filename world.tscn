@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://defvrdpiy8kb6"]
+[gd_scene load_steps=6 format=3 uid="uid://defvrdpiy8kb6"]
 
 [ext_resource type="PackedScene" uid="uid://b52u7nye2n7xk" path="res://player.tscn" id="1_a8os0"]
+[ext_resource type="PackedScene" uid="uid://b22ybduxilk00" path="res://collectables/scences/coin_ui.tscn" id="2_3cklw"]
+[ext_resource type="PackedScene" uid="uid://du5i8xh3wmk86" path="res://collectables/scences/coin.tscn" id="3_7ycli"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_p8fr7"]
 size = Vector2(1000, 150)
@@ -33,3 +35,14 @@ mesh = SubResource("QuadMesh_p8fr7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
 position = Vector2(820, 1104)
 shape = SubResource("RectangleShape2D_tgegt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CoinUI" parent="CanvasLayer" instance=ExtResource("2_3cklw")]
+
+[node name="Coin" parent="." instance=ExtResource("3_7ycli")]
+position = Vector2(-274, -24)
+
+[node name="Coin2" parent="." instance=ExtResource("3_7ycli")]
+position = Vector2(-370, -29)
+scale = Vector2(5, 5)
