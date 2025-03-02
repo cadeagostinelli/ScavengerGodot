@@ -36,6 +36,17 @@ mesh = SubResource("QuadMesh_p8fr7")
 position = Vector2(820, 1104)
 shape = SubResource("RectangleShape2D_tgegt")
 
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2(-920, 1048)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform3"]
+position = Vector2(825, 1007)
+mesh = SubResource("QuadMesh_p8fr7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+position = Vector2(820, 1104)
+shape = SubResource("RectangleShape2D_tgegt")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CoinUI" parent="CanvasLayer" instance=ExtResource("2_3cklw")]

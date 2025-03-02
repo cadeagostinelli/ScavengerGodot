@@ -6,11 +6,11 @@ class_name Player extends CharacterBody2D
 const SPEED = 400.0
 const JUMP_VELOCITY = -500.0
 @export var fall_damage_threshold: float = 500.0
-@export var max_fall_damage: int = 50
-@export var fall_damage_factor: float = 0.1
+#@export var max_fall_damage: int = 50
+@export var fall_damage_factor: float = 0.05
 var max_fall_speed: float = 0.0
 var fall_speed: float = 0.0
-var previous_fall_speed: float = 0.0 # Store the fall speed from the previous frame
+var previous_fall_speed: float = 0.0 
 @export var max_health: int = 100
 var health: int
 
@@ -33,18 +33,18 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	previous_fall_speed = fall_speed # Store the current fall speed before updating it.
+	previous_fall_speed = fall_speed 
 	fall_speed = abs(velocity.y)
-	print("Fall speed: ", fall_speed)
 
 	if is_on_floor():
-		if previous_fall_speed > fall_damage_threshold: # Check the previous frame's fall speed
-			apply_fall_damage(previous_fall_speed) # Use the previous frame's fall speed
-			previous_fall_speed = 0 # reset previous fall speed
-			fall_speed = 0 # reset fall speed
+		if previous_fall_speed > fall_damage_threshold: 
+			apply_fall_damage(previous_fall_speed)
+			previous_fall_speed = 0
+			fall_speed = 0
+
 func apply_fall_damage(fall_speed: float):
 	var damage = fall_speed * fall_damage_factor
-	damage = min(damage, max_fall_damage)
+	#damage = min(damage, max_fall_damage)
 	print("Fall damage applied: ", damage)
 	take_damage(damage)
 
