@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @onready var death_screen_scene = preload("res://DeathScreen.tscn")
 @onready var death_screen

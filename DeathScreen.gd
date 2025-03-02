@@ -11,8 +11,8 @@ func _ready() -> void:
 	offset_bottom = 0
 	
 	# Make sure it fills the whole screen
-	grow_horizontal = 2  # GROW_DIRECTION_BOTH
-	grow_vertical = 2    # GROW_DIRECTION_BOTH
+	grow_horizontal = 2
+	grow_vertical = 2 
 	
 	# Center the VBoxContainer
 	var vbox = $VBoxContainer
@@ -30,9 +30,6 @@ func _ready() -> void:
 
 func show_death_screen(death_position = null):
 	visible = true
-	
-	# We're treating this as a fullscreen overlay, so no need to position it
-	# at the player's death location
 
 func _on_retry_button_pressed():
 	get_tree().reload_current_scene()
