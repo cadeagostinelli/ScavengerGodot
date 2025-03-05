@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjq3dtpoki5do"]
+[gd_scene load_steps=7 format=3 uid="uid://cjq3dtpoki5do"]
 
 [ext_resource type="TileSet" uid="uid://c1gcoa3bibke4" path="res://TileSet.tres" id="1_0a2dj"]
 [ext_resource type="PackedScene" uid="uid://b52u7nye2n7xk" path="res://player.tscn" id="2_qdevu"]
 [ext_resource type="PackedScene" uid="uid://b22ybduxilk00" path="res://collectables/scences/coin_ui.tscn" id="3_xhbjb"]
 [ext_resource type="PackedScene" uid="uid://du5i8xh3wmk86" path="res://collectables/scences/coin.tscn" id="4_frlg1"]
 [ext_resource type="PackedScene" uid="uid://c1isn1mojmwvs" path="res://wall_stick_item.tscn" id="5_yfiwj"]
+[ext_resource type="Texture2D" uid="uid://dgruts58hxj4b" path="res://assets/2d_light.png" id="6_oxnbq"]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -38,3 +39,13 @@ position = Vector2(73, -27)
 
 [node name="WallStickItem" parent="." instance=ExtResource("5_yfiwj")]
 position = Vector2(156, -29)
+
+[node name="Background" type="CanvasModulate" parent="."]
+color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-127, -22)
+scale = Vector2(1.5, 1.39063)
+texture = ExtResource("6_oxnbq")
+offset = Vector2(100, 0)
+texture_scale = 0.5

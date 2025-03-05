@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://b52u7nye2n7xk"]
+[gd_scene load_steps=15 format=3 uid="uid://b52u7nye2n7xk"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_g3tc1"]
 [ext_resource type="PackedScene" uid="uid://dskuovnn22gdy" path="res://healthbar.tscn" id="3_qv0fp"]
+[ext_resource type="Texture2D" uid="uid://dgruts58hxj4b" path="res://assets/2d_light.png" id="4_6c18w"]
 [ext_resource type="Texture2D" uid="uid://dvyp84eryepft" path="res://assets/scavenger_tileset_1.png" id="4_ocayf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38l5m"]
@@ -115,3 +116,9 @@ offset_bottom = -17.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7ryvv")
 animation = &"Walk"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2, -0.500001)
+scale = Vector2(1.5, 1.39063)
+texture = ExtResource("4_6c18w")
+texture_scale = 0.5
