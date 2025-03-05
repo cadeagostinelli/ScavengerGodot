@@ -1,19 +1,19 @@
 class_name Player extends CharacterBody2D
 
+@onready var animated_sprite = $AnimatedSprite2D  # Add this line to reference your AnimatedSprite2D
 @onready var death_screen_scene = preload("res://DeathScreen.tscn")
-@onready var death_screen
 @onready var healthbar = $Healthbar
-const SPEED = 400.0
-const JUMP_VELOCITY = -500.0
+
+const SPEED = 150.0
+const JUMP_VELOCITY = -300.0
 @export var fall_damage_threshold: float = 800.0
-#@export var max_fall_damage: int = 50
 @export var fall_damage_factor: float = 0.05
+
 var max_fall_speed: float = 0.0
 var fall_speed: float = 0.0
 var previous_fall_speed: float = 0.0 
 @export var max_health: int = 100
 var health: int
-
 @export var wall_stick_enabled: bool = false
 @export var wall_stick_duration: float = 0.0
 var wall_stick_timer: float = 0.0
@@ -23,30 +23,34 @@ func _ready():
 	healthbar.init_health(health)
 
 func _physics_process(delta: float) -> void:
+	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
+	# Jumping
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	# Horizontal Movement
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+		# Flip sprite based on movement direction
+		animated_sprite.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	# Manage Fall Speed and Damage
 	previous_fall_speed = fall_speed 
 	fall_speed = abs(velocity.y)
-
 	if is_on_floor():
 		if previous_fall_speed > fall_damage_threshold: 
 			apply_fall_damage(previous_fall_speed)
 			previous_fall_speed = 0
 			fall_speed = 0
-	
-	# WALL STICK ITEM
-	var is_touching_wall = is_on_wall()
 
+	# Wall Stick Mechanics
+	var is_touching_wall = is_on_wall()
 	if wall_stick_enabled and is_touching_wall:
 		# Slowly fall
 		velocity.y = 10 
@@ -62,7 +66,6 @@ func _physics_process(delta: float) -> void:
 				velocity.x = SPEED * 6 if velocity.x < 0 else -SPEED * 6
 			# Temporarily disable wall stick to prevent player from getting stuck
 			wall_stick_enabled = false  
-
 			await get_tree().create_timer(0.1).timeout
 			wall_stick_enabled = true
 				
@@ -70,8 +73,26 @@ func _physics_process(delta: float) -> void:
 		wall_stick_timer -= delta
 		if wall_stick_timer <= 0:
 			wall_stick_enabled = false  # Disable after time expires
-	
+
+	# Animate the player
+	update_animation()
+
 	move_and_slide()
+
+func update_animation():
+	# Determine the appropriate animation based on player state
+	if is_on_floor():
+		if abs(velocity.x) > 0:
+			animated_sprite.play("Walk")
+		else:
+			animated_sprite.play("Idle")
+	else:
+		if is_on_wall() and wall_stick_enabled:
+			animated_sprite.play("WallStick")
+		elif velocity.y < 0:
+			animated_sprite.play("Jumping")
+		else:
+			animated_sprite.play("Jumping")
 
 func apply_fall_damage(fall_speed: float):
 	var damage = fall_speed * fall_damage_factor
