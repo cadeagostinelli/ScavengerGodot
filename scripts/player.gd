@@ -4,6 +4,7 @@ class_name Player extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D  # Add this line to reference your AnimatedSprite2D
 @onready var death_screen_scene = preload("res://DeathScreen.tscn")
 @onready var healthbar = $Healthbar
+@onready var ladder_ray_cast: RayCast2D = $LadderRay
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
@@ -25,6 +26,10 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	# Gravity
+	var ladderCollider = ladder_ray_cast.get_collider()
+	
+	if ladderCollider: _ladder_climb(delta)
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -79,6 +84,14 @@ func _physics_process(delta: float) -> void:
 	update_animation()
 
 	move_and_slide()
+	
+func _ladder_climb(delta):
+	var direction := Vector2.ZERO
+	direction.x = Input.get_axis("ui_left", "ui_right")
+	direction.y = Input.get_axis("ui_up", "ui_down")
+	if direction:velocity = direction * SPEED 
+	else:velocity = Vector2.ZERO
+	
 
 func update_animation():
 	# Determine the appropriate animation based on player state
