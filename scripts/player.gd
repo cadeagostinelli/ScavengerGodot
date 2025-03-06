@@ -1,5 +1,6 @@
 class_name Player extends CharacterBody2D
 
+
 @onready var animated_sprite = $AnimatedSprite2D  # Add this line to reference your AnimatedSprite2D
 @onready var death_screen_scene = preload("res://DeathScreen.tscn")
 @onready var healthbar = $Healthbar
@@ -124,3 +125,6 @@ func enable_wall_stick(duration: float):
 	wall_stick_enabled = true
 	wall_stick_timer = duration
 	print("Wall stick enabled for", duration, "seconds!")
+	
+
+	
