@@ -3,7 +3,7 @@ extends Node2D
 var Player = preload("res://scripts/player.gd")
 
 @export var value: int = 1
-@export var desired_scale: Vector2 = Vector2(1, 1) # for scaling the coins
+@export var desired_scale: Vector2 = Vector2(0.5, 0.5) # for scaling the coins
 
 func _ready():
 	add_to_group("Coins")
