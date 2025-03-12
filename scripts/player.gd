@@ -21,6 +21,11 @@ var health: int
 var wall_stick_timer: float = 0.0
 
 func _ready():
+	var audio_player1 = AudioStreamPlayer.new()
+	add_child(audio_player1)
+	audio_player1.stream = preload("res://audio/jump.wav")
+	audio_player1.name = "JumpSound"
+	
 	health = max_health
 	healthbar.init_health(health)
 
@@ -36,6 +41,7 @@ func _physics_process(delta: float) -> void:
 	# Jumping
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$JumpSound.play() # sound for jumping
 
 	# Horizontal Movement
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -62,6 +68,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 10 
 		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = JUMP_VELOCITY
+			$JumpSound.play() # sound for jumping
 			if is_on_wall() and velocity.x < 0:
 				velocity.x = SPEED * 6
 			# On the left side of the wall (player facing right)
