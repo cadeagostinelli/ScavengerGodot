@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxkuox8djgly5"]
+
+[ext_resource type="Script" path="res://scripts/treasure.gd" id="1_3gx7p"]
+[ext_resource type="Texture2D" uid="uid://dvyp84eryepft" path="res://assets/scavenger_tileset_1.png" id="2_ltdfm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvpaa"]
+atlas = ExtResource("2_ltdfm")
+region = Rect2(128, 32, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lpeh"]
+size = Vector2(10, 8)
+
+[node name="Area2D" type="RigidBody2D"]
+script = ExtResource("1_3gx7p")
+value = null
+fall_speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_mvpaa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_3lpeh")

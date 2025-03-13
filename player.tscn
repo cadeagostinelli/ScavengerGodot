@@ -120,5 +120,6 @@ animation = &"Walk"
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(2, -0.500001)
 scale = Vector2(1.5, 1.39063)
+blend_mode = 2
 texture = ExtResource("4_6c18w")
 texture_scale = 0.5

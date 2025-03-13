@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bita7c3kpl02b"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+offset_top = 8.0
+offset_right = 87.0
+offset_bottom = 31.0
+text = "Treasure: 0"

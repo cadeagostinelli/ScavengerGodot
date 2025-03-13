@@ -5,6 +5,9 @@ class_name Player extends CharacterBody2D
 @onready var death_screen_scene = preload("res://DeathScreen.tscn")
 @onready var healthbar = $Healthbar
 @onready var ladder_ray_cast: RayCast2D = $LadderRay
+@onready var treasure_ui_scene = preload("res://treasure_ui.tscn")
+@onready var treasure_ui_instance = treasure_ui_scene.instantiate()
+@onready var score_label = treasure_ui_instance.get_node("Label")
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
@@ -20,14 +23,20 @@ var health: int
 @export var wall_stick_duration: float = 0.0
 var wall_stick_timer: float = 0.0
 
+var score: int = 0
+
 func _ready():
+	add_to_group("player")
 	var audio_player1 = AudioStreamPlayer.new()
+	add_child(treasure_ui_instance)
 	add_child(audio_player1)
 	audio_player1.stream = preload("res://audio/jump.wav")
 	audio_player1.name = "JumpSound"
 	
 	health = max_health
 	healthbar.init_health(health)
+	
+	
 
 func _physics_process(delta: float) -> void:
 	# Gravity
@@ -146,5 +155,10 @@ func enable_wall_stick(duration: float):
 	wall_stick_timer = duration
 	print("Wall stick enabled for", duration, "seconds!")
 	
+func add_treasure(amount: int) -> void:
+	score += amount
+	update_score_display()  # Update score display
 
-	
+# Update score in the UI
+func update_score_display() -> void:
+	score_label.text = "Treasure: " + str(score)
