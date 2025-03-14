@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://vp850jto3aqg"]
+
+[ext_resource type="Script" path="res://scripts/chest.gd" id="1_8tfmj"]
+[ext_resource type="Texture2D" uid="uid://dvyp84eryepft" path="res://assets/scavenger_tileset_1.png" id="2_lj4mb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pr77d"]
+size = Vector2(48, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdjan"]
+atlas = ExtResource("2_lj4mb")
+region = Rect2(144, 16, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2lbq"]
+atlas = ExtResource("2_lj4mb")
+region = Rect2(192, 16, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0trk"]
+atlas = ExtResource("2_lj4mb")
+region = Rect2(128, 80, 16, 16)
+
+[node name="Chest" type="Area2D"]
+script = ExtResource("1_8tfmj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_pr77d")
+
+[node name="ClosedChest" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_fdjan")
+
+[node name="OpenChest" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_n2lbq")
+
+[node name="Diamond" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_m0trk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

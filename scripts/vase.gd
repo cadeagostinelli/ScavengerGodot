@@ -17,7 +17,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 			treasure.global_position = vase_position
 
-			var launch_velocity = Vector2(randi_range(100, 200), randi_range(-50, 50))
+			var launch_velocity = Vector2(randi_range(80, 220), randi_range(-60, 60))
 			treasure.linear_velocity = launch_velocity
 
 			treasure.collision_layer = 2 << i

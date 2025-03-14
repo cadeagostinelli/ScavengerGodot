@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjq3dtpoki5do"]
+[gd_scene load_steps=10 format=3 uid="uid://cjq3dtpoki5do"]
 
 [ext_resource type="TileSet" uid="uid://c1gcoa3bibke4" path="res://TileSet.tres" id="1_0a2dj"]
 [ext_resource type="PackedScene" uid="uid://b52u7nye2n7xk" path="res://player.tscn" id="2_qdevu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dgruts58hxj4b" path="res://assets/2d_light.png" id="6_oxnbq"]
 [ext_resource type="PackedScene" uid="uid://bita7c3kpl02b" path="res://treasure_ui.tscn" id="7_4bkuc"]
 [ext_resource type="PackedScene" uid="uid://dlc70ob1qm536" path="res://vase.tscn" id="8_fhvo1"]
+[ext_resource type="PackedScene" uid="uid://vp850jto3aqg" path="res://chest.tscn" id="9_jmot6"]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -43,6 +44,7 @@ offset_right = 102.0
 offset_bottom = 61.0
 
 [node name="Coin" parent="." instance=ExtResource("4_frlg1")]
+visible = false
 position = Vector2(73, -27)
 
 [node name="WallStickItem" parent="." instance=ExtResource("5_yfiwj")]
@@ -59,6 +61,10 @@ offset = Vector2(100, 0)
 texture_scale = 0.5
 
 [node name="Vase" parent="." instance=ExtResource("8_fhvo1")]
-position = Vector2(113, -24)
+position = Vector2(172, -23)
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("7_4bkuc")]
+
+[node name="Chest" parent="." instance=ExtResource("9_jmot6")]
+z_index = -1
+position = Vector2(121, -31)
