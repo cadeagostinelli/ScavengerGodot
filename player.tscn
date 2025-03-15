@@ -123,3 +123,11 @@ scale = Vector2(1.5, 1.39063)
 blend_mode = 2
 texture = ExtResource("4_6c18w")
 texture_scale = 0.5
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../../Camera2D")
+
+[node name="LadderRay" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+collision_mask = 2
+hit_from_inside = true

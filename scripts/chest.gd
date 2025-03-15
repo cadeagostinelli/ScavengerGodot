@@ -3,7 +3,7 @@ extends Area2D
 @onready var diamond = $Diamond
 @onready var open_sprite = $OpenChest
 @onready var closed_sprite = $ClosedChest 
-@export var treasure_value: int = 100 
+@export var treasure_value: int = 300 
 
 var opened = false 
 

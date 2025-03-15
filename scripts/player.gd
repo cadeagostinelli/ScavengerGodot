@@ -8,9 +8,9 @@ class_name Player extends CharacterBody2D
 @onready var treasure_ui_instance = treasure_ui_scene.instantiate()
 @onready var score_label = treasure_ui_instance.get_node("Label")
 
-const SPEED = 150.0
-const JUMP_VELOCITY = -300.0
-@export var fall_damage_threshold: float = 800.0
+const SPEED = 100.0
+const JUMP_VELOCITY = -250.0
+@export var fall_damage_threshold: float = 300.0
 @export var fall_damage_factor: float = 0.05
 
 var max_fall_speed: float = 0.0
@@ -18,9 +18,10 @@ var fall_speed: float = 0.0
 var previous_fall_speed: float = 0.0
 @export var max_health: int = 100
 var health: int
-@export var wall_stick_enabled: bool = false
-@export var wall_stick_duration: float = 0.0
-var wall_stick_timer: float = 0.0
+var wall_stick_enabled = true
+var wall_jump_timer = 0.0
+@export var wall_jump_buffer_time = 0.15 
+var was_on_wall = false
 var is_climbing_ladder: bool = false 
 
 var score: int = 0
@@ -37,51 +38,69 @@ func _ready():
 	healthbar.init_health(health)
 
 func _physics_process(delta: float) -> void:
-	# Gravity
 	var ladderCollider = ladder_ray_cast.get_collider()
-	
-	# If the player is on the ladder, disable wall stick
+
 	if ladderCollider:
 		_ladder_climb(delta)
-		wall_stick_enabled = false  # Disable wall stick when on the ladder
+		wall_stick_enabled = false
+		if not animated_sprite.is_playing() or animated_sprite.animation != "Jumping":
+			animated_sprite.play("Jumping") 
+		is_climbing_ladder = true  
 	else:
-		# Enable wall stick if the player is not on the ladder and touches the wall
+		is_climbing_ladder = false
 		var is_touching_wall = is_on_wall()
 		if wall_stick_enabled and is_touching_wall:
-			# Slowly fall
-			velocity.y = 10
+			velocity.y = 10  
+
 			if Input.is_action_just_pressed("ui_accept"):
-				velocity.y = JUMP_VELOCITY
-				$JumpSound.play()  # sound for jumping
-				if is_on_wall() and velocity.x < 0:
-					velocity.x = SPEED * 6
-				elif is_on_wall() and velocity.x > 0:
-					velocity.x = -SPEED * 6
-				else:
-					velocity.x = SPEED * 6 if velocity.x < 0 else -SPEED * 6
+				velocity.y = JUMP_VELOCITY * 1.3
+				$JumpSound.play()
+
+				if is_on_wall_only():
+					if Input.is_action_pressed("ui_left"):
+						velocity.x = SPEED * 6
+					elif Input.is_action_pressed("ui_right"):
+						velocity.x = -SPEED * 6
+					else:
+						velocity.x = SPEED * 6 if velocity.x < 0 else -SPEED * 6
+
 				wall_stick_enabled = false
 				await get_tree().create_timer(0.1).timeout
 				wall_stick_enabled = true
 
-	# Apply gravity when not on the floor
+			if not animated_sprite.is_playing() or animated_sprite.animation != "WallStick":
+				animated_sprite.play("WallStick") 
+
+		elif not is_touching_wall:
+			if animated_sprite.is_playing() and animated_sprite.animation == "WallStick":
+				animated_sprite.stop()
+
+		if was_on_wall and not is_on_wall():
+			wall_jump_timer = wall_jump_buffer_time
+		was_on_wall = is_on_wall()
+
+		if not ladderCollider and not is_touching_wall:
+			wall_stick_enabled = true
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	
-	# Jumping
+
+	# Jumping when on the floor
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		$JumpSound.play()  # sound for jumping
+		$JumpSound.play()
 
-	# Horizontal Movement
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
-		# Flip sprite based on movement direction
 		animated_sprite.flip_h = direction < 0
+		if not animated_sprite.is_playing() or animated_sprite.animation != "WallStick":
+			animated_sprite.play("Walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if not animated_sprite.is_playing() or animated_sprite.animation != "WallStick":
+			animated_sprite.play("Idle")
 
-	# Manage Fall Speed and Damage
 	previous_fall_speed = fall_speed 
 	fall_speed = abs(velocity.y)
 	if is_on_floor():
@@ -90,13 +109,6 @@ func _physics_process(delta: float) -> void:
 			previous_fall_speed = 0
 			fall_speed = 0
 
-	# Wall Stick Mechanics
-	if wall_stick_timer > 0:
-		wall_stick_timer -= delta
-		if wall_stick_timer <= 0:
-			wall_stick_enabled = false  # Disable after time expires
-
-	# Animate the player
 	update_animation()
 
 	move_and_slide()
@@ -106,7 +118,7 @@ func _ladder_climb(delta):
 	direction.x = Input.get_axis("ui_left", "ui_right")
 	direction.y = Input.get_axis("ui_up", "ui_down")
 	if direction:
-		velocity = direction * SPEED
+		velocity = direction * SPEED *1.5
 	else:
 		velocity = Vector2.ZERO
 	is_climbing_ladder = true  # Set to true while climbing
@@ -153,11 +165,6 @@ func die():
 	var player_position = global_position
 	death_screen.show_death_screen(player_position)
 	queue_free()
-
-func enable_wall_stick(duration: float):
-	wall_stick_enabled = true
-	wall_stick_timer = duration
-	print("Wall stick enabled for", duration, "seconds!")
 
 func add_treasure(amount: int) -> void:
 	score += amount

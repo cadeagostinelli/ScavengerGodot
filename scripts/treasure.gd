@@ -2,7 +2,7 @@ extends RigidBody2D
 
 @export var value: int = 10  
 @export var pickup_range: float = 32  
-@export var pickup_delay: float = 0.5  
+@export var pickup_delay: float = 0.2
 
 @onready var area = $Area2D  
 @onready var timer = Timer.new()  
@@ -27,3 +27,6 @@ func _ready() -> void:
 
 func _on_timeout() -> void:
 	can_pick_up = true  
+	for body in area.get_overlapping_bodies():
+		if body.is_in_group("player"):
+			_on_Area2D_body_entered(body)
