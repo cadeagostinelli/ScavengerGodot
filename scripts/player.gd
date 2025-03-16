@@ -28,6 +28,8 @@ var score: int = 0
 
 func _ready():
 	add_to_group("player")
+	for spike in get_tree().get_nodes_in_group("spikes"):
+		spike.add_to_group("spikes")  # Ensures all spikes are in the group
 	var audio_player1 = AudioStreamPlayer.new()
 	add_child(treasure_ui_instance)
 	add_child(audio_player1)

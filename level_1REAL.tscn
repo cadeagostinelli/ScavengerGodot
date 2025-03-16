@@ -1,15 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://b4x8us7r8cm5h"]
+[gd_scene load_steps=8 format=4 uid="uid://b4x8us7r8cm5h"]
 
 [ext_resource type="PackedScene" uid="uid://dlc70ob1qm536" path="res://vase.tscn" id="1_p44n5"]
 [ext_resource type="PackedScene" uid="uid://vp850jto3aqg" path="res://chest.tscn" id="2_m7k50"]
 [ext_resource type="TileSet" uid="uid://c1gcoa3bibke4" path="res://TileSet.tres" id="3_ffpaq"]
 [ext_resource type="PackedScene" uid="uid://bita7c3kpl02b" path="res://treasure_ui.tscn" id="5_muevk"]
 [ext_resource type="Texture2D" uid="uid://dgruts58hxj4b" path="res://assets/2d_light.png" id="6_7253k"]
-[ext_resource type="PackedScene" uid="uid://cs8wa16pw80rt" path="res://collectables/scences/PlayerSpawner.tscn" id="6_hmm60"]
-[ext_resource type="Texture2D" uid="uid://dvyp84eryepft" path="res://assets/scavenger_tileset_1.png" id="7_5cmjj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hnr2"]
-size = Vector2(20.25, 13.5)
+[ext_resource type="PackedScene" uid="uid://b52u7nye2n7xk" path="res://player.tscn" id="7_4gmre"]
+[ext_resource type="PackedScene" uid="uid://boryyip7wsqad" path="res://spikes.tscn" id="8_wwpqk"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -24,7 +21,7 @@ tile_map_data = PackedByteArray("AAABAAYAAAAEAAAAAAACAAYAAAABAAAAAAADAAYAAAABAAA
 tile_set = ExtResource("3_ffpaq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(71, 85)
+position = Vector2(57, 76)
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("5_muevk")]
 
@@ -98,531 +95,88 @@ position = Vector2(777, 88)
 [node name="Vase7" parent="." instance=ExtResource("1_p44n5")]
 position = Vector2(986, 87)
 
-[node name="PlayerSpawner" parent="." instance=ExtResource("6_hmm60")]
-position = Vector2(53, 71)
-
-[node name="Spikes" type="StaticBody2D" parent="."]
-position = Vector2(121, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(306, 345)
 editor_only = true
 energy = 2.71
 
-[node name="Spikes2" type="StaticBody2D" parent="."]
-position = Vector2(137, 232)
+[node name="Spikes" parent="." groups=["spikes"] instance=ExtResource("8_wwpqk")]
+position = Vector2(120, 233)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes2"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
+[node name="Player" parent="." instance=ExtResource("7_4gmre")]
+position = Vector2(57, 76)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spikes2"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
+[node name="Spikes2" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(136, 233)
 
-[node name="Area2D" type="Area2D" parent="Spikes2"]
-position = Vector2(-2, 0)
+[node name="Spikes3" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(184, 233)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes2/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
+[node name="Spikes4" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(200, 233)
 
-[node name="Spikes3" type="StaticBody2D" parent="."]
-position = Vector2(185, 232)
+[node name="Spikes5" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(248, 233)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes3"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
+[node name="Spikes6" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(264, 233)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spikes3"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
+[node name="Spikes7" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(696, 233)
 
-[node name="Area2D" type="Area2D" parent="Spikes3"]
-position = Vector2(-2, 0)
+[node name="Spikes8" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(712, 233)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes3/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
+[node name="Spikes9" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(840, 233)
 
-[node name="Spikes4" type="StaticBody2D" parent="."]
-position = Vector2(201, 232)
+[node name="Spikes10" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(856, 233)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes4"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
+[node name="Spikes11" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(952, 233)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spikes4"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
+[node name="Spikes12" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1048, 233)
 
-[node name="Area2D" type="Area2D" parent="Spikes4"]
-position = Vector2(-2, 0)
+[node name="Spikes13" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1064, 233)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes4/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
+[node name="Spikes14" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1080, 233)
 
-[node name="Spikes5" type="StaticBody2D" parent="."]
-position = Vector2(249, 232)
+[node name="Spikes15" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1096, 233)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes5"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
+[node name="Spikes16" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1112, 233)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spikes5"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
+[node name="Spikes17" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1128, 233)
 
-[node name="Area2D" type="Area2D" parent="Spikes5"]
-position = Vector2(-2, 0)
+[node name="Spikes18" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1144, 233)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes5/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
+[node name="Spikes19" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1160, 233)
 
-[node name="Spikes6" type="StaticBody2D" parent="."]
-position = Vector2(264, 232)
+[node name="Spikes20" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1176, 233)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes6"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
+[node name="Spikes21" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1192, 233)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spikes6"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
+[node name="Spikes22" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1208, 233)
 
-[node name="Area2D" type="Area2D" parent="Spikes6"]
-position = Vector2(-2, 0)
+[node name="Spikes23" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1224, 233)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes6/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
+[node name="Spikes24" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1240, 233)
 
-[node name="Spikes7" type="StaticBody2D" parent="."]
-position = Vector2(697, 232)
+[node name="Spikes25" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1256, 233)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes7"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes7"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes7"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes7/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes8" type="StaticBody2D" parent="."]
-position = Vector2(713, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes8"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes8"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes8"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes8/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes9" type="StaticBody2D" parent="."]
-position = Vector2(841, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes9"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes9"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes9"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes9/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes10" type="StaticBody2D" parent="."]
-position = Vector2(857, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes10"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes10"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes10"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes10/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes11" type="StaticBody2D" parent="."]
-position = Vector2(953, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes11"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes11"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes11"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes11/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes12" type="StaticBody2D" parent="."]
-position = Vector2(1049, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes12"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes12"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes12"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes12/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes13" type="StaticBody2D" parent="."]
-position = Vector2(1065, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes13"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes13"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes13"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes13/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes14" type="StaticBody2D" parent="."]
-position = Vector2(1081, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes14"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes14"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes14"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes14/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes15" type="StaticBody2D" parent="."]
-position = Vector2(1097, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes15"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes15"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes15"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes15/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes16" type="StaticBody2D" parent="."]
-position = Vector2(1113, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes16"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes16"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes16"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes16/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes17" type="StaticBody2D" parent="."]
-position = Vector2(1129, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes17"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes17"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes17"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes17/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes18" type="StaticBody2D" parent="."]
-position = Vector2(1145, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes18"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes18"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes18"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes18/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes19" type="StaticBody2D" parent="."]
-position = Vector2(1161, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes19"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes19"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes19"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes19/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes20" type="StaticBody2D" parent="."]
-position = Vector2(1177, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes20"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes20"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes20"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes20/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes21" type="StaticBody2D" parent="."]
-position = Vector2(1193, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes21"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes21"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes21"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes21/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes22" type="StaticBody2D" parent="."]
-position = Vector2(1209, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes22"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes22"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes22"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes22/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes23" type="StaticBody2D" parent="."]
-position = Vector2(1225, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes23"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes23"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes23"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes23/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes24" type="StaticBody2D" parent="."]
-position = Vector2(1241, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes24"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes24"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes24"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes24/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes25" type="StaticBody2D" parent="."]
-position = Vector2(1257, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes25"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes25"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes25"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes25/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Spikes26" type="StaticBody2D" parent="."]
-position = Vector2(1273, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes26"]
-position = Vector2(-0.875, 1.75)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes26"]
-texture = ExtResource("7_5cmjj")
-region_enabled = true
-region_rect = Rect2(80, 17, 17.1446, 15)
-
-[node name="Area2D" type="Area2D" parent="Spikes26"]
-position = Vector2(-2, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes26/Area2D"]
-position = Vector2(0.75, 1.5)
-shape = SubResource("RectangleShape2D_2hnr2")
-
-[connection signal="body_entered" from="Spikes/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes2/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes3/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes4/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes5/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes6/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes7/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes8/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes9/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes10/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes11/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes12/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes13/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes14/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes15/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes16/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes17/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes18/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes19/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes20/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes21/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes22/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes23/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes24/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes25/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Spikes26/Area2D" to="PlayerSpawner" method="_on_area_2d_body_entered"]
+[node name="Spikes26" parent="." instance=ExtResource("8_wwpqk")]
+position = Vector2(1272, 233)

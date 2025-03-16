@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://boryyip7wsqad"]
+
+[ext_resource type="Script" path="res://spikes.gd" id="1_ksw66"]
+[ext_resource type="Texture2D" uid="uid://dvyp84eryepft" path="res://assets/scavenger_tileset_1.png" id="2_xo2p5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lno3m"]
+size = Vector2(16, 13)
+
+[node name="Spikes" type="Area2D"]
+script = ExtResource("1_ksw66")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xo2p5")
+region_enabled = true
+region_rect = Rect2(80, 19, 16, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_lno3m")
