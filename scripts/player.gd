@@ -10,7 +10,7 @@ class_name Player extends CharacterBody2D
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -250.0
-@export var fall_damage_threshold: float = 300.0
+@export var fall_damage_threshold: float = 500.0
 @export var fall_damage_factor: float = 0.05
 
 var max_fall_speed: float = 0.0
