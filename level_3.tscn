@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://owliqyrc4tei"]
+[gd_scene load_steps=8 format=4 uid="uid://owliqyrc4tei"]
 
 [ext_resource type="TileSet" uid="uid://c1gcoa3bibke4" path="res://TileSet.tres" id="1_1pq7f"]
 [ext_resource type="PackedScene" uid="uid://b52u7nye2n7xk" path="res://player.tscn" id="2_smnek"]
 [ext_resource type="PackedScene" uid="uid://bita7c3kpl02b" path="res://treasure_ui.tscn" id="3_rsue3"]
 [ext_resource type="PackedScene" uid="uid://dlc70ob1qm536" path="res://vase.tscn" id="4_xx0lc"]
 [ext_resource type="PackedScene" uid="uid://vp850jto3aqg" path="res://chest.tscn" id="5_v46j3"]
-[ext_resource type="PackedScene" uid="uid://cs8wa16pw80rt" path="res://collectables/scences/PlayerSpawner.tscn" id="6_2pnot"]
 [ext_resource type="Texture2D" uid="uid://dgruts58hxj4b" path="res://assets/2d_light.png" id="6_nx1w6"]
 [ext_resource type="PackedScene" uid="uid://boryyip7wsqad" path="res://spikes.tscn" id="8_0ycbb"]
 
@@ -121,9 +120,6 @@ texture = ExtResource("6_nx1w6")
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 editor_only = true
 energy = 4.0
-
-[node name="PlayerSpawner" parent="." instance=ExtResource("6_2pnot")]
-position = Vector2(125, 137)
 
 [node name="Player" parent="." instance=ExtResource("2_smnek")]
 position = Vector2(119, 135)
