@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://be1lwrqgk6xh5"]
+[gd_scene load_steps=6 format=3 uid="uid://be1lwrqgk6xh5"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_23evk"]
+[ext_resource type="Texture2D" uid="uid://bmwbs80sypepn" path="res://assets/RockBG.png" id="2_d5duk"]
+[ext_resource type="Texture2D" uid="uid://bl7p3036ho44v" path="res://assets/Title.png" id="2_fjkev"]
+[ext_resource type="Texture2D" uid="uid://bj04kce8r5u0e" path="res://assets/Quit.png" id="2_ip53y"]
+[ext_resource type="Texture2D" uid="uid://beruwv1u3ihl6" path="res://assets/start1.png" id="4_bevnl"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -9,23 +13,43 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_23evk")
 
-[node name="StartButton" type="Button" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 68.0
-offset_top = 37.0
-offset_right = 114.0
-offset_bottom = 68.0
-text = "Start"
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 240.5
+offset_bottom = 160.5
+texture = ExtResource("2_d5duk")
 
-[node name="QuitButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 73.0
-offset_top = 90.0
-offset_right = 119.0
-offset_bottom = 121.0
-text = "Quit"
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 90.0
+offset_right = 390.0
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fjkev")
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 145.0
+offset_top = -20.0
+offset_right = 595.0
+offset_bottom = 430.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("2_ip53y")
+
+[node name="Start" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 325.0
+offset_bottom = 325.0
+texture_normal = ExtResource("4_bevnl")
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
