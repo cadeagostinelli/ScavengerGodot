@@ -23,7 +23,7 @@ func _ready() -> void:
 	button.connect("pressed", Callable(self, "_on_restart_button_pressed"))
 	
 func _on_restart_button_pressed():
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://level_1REAL.tscn")
 
 func show_end_screen() -> void:
 	visible = true
