@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cvyo7d5jsytjl"]
+[gd_scene load_steps=8 format=4 uid="uid://cvyo7d5jsytjl"]
 
 [ext_resource type="TileSet" uid="uid://c1gcoa3bibke4" path="res://TileSet.tres" id="1_0ap17"]
 [ext_resource type="PackedScene" uid="uid://b52u7nye2n7xk" path="res://player.tscn" id="2_sn4r8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://quu5jw3f32xa" path="res://blue_vase.tscn" id="4_lkygu"]
 [ext_resource type="PackedScene" uid="uid://vp850jto3aqg" path="res://chest.tscn" id="5_rr6mb"]
 [ext_resource type="Texture2D" uid="uid://dgruts58hxj4b" path="res://assets/2d_light.png" id="6_ujffh"]
+[ext_resource type="PackedScene" uid="uid://cdlvcb8y2ix4b" path="res://next_level.tscn" id="7_k6xxd"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -102,3 +103,6 @@ texture = ExtResource("6_ujffh")
 [node name="PointLight2D10" type="PointLight2D" parent="."]
 position = Vector2(1192, 102)
 texture = ExtResource("6_ujffh")
+
+[node name="NextLevel" parent="." instance=ExtResource("7_k6xxd")]
+position = Vector2(1162, 115)

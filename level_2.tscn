@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cb8n1fefxicil"]
+[gd_scene load_steps=10 format=4 uid="uid://cb8n1fefxicil"]
 
 [ext_resource type="TileSet" uid="uid://c1gcoa3bibke4" path="res://TileSet.tres" id="1_e410b"]
 [ext_resource type="PackedScene" uid="uid://b52u7nye2n7xk" path="res://player.tscn" id="2_6l26o"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dgruts58hxj4b" path="res://assets/2d_light.png" id="5_kt5lw"]
 [ext_resource type="PackedScene" uid="uid://dlc70ob1qm536" path="res://vase.tscn" id="6_5rqyo"]
 [ext_resource type="PackedScene" uid="uid://boryyip7wsqad" path="res://spikes.tscn" id="7_nj60f"]
+[ext_resource type="PackedScene" uid="uid://cdlvcb8y2ix4b" path="res://next_level.tscn" id="8_mj1qg"]
+[ext_resource type="PackedScene" uid="uid://btxi65bvvbchk" path="res://special_level_switch.tscn" id="9_2p1rr"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -389,3 +391,9 @@ position = Vector2(1928, 345)
 
 [node name="Spikes75" parent="." instance=ExtResource("7_nj60f")]
 position = Vector2(1944, 345)
+
+[node name="NextLevel" parent="." instance=ExtResource("8_mj1qg")]
+position = Vector2(2556, 145)
+
+[node name="special_level_switch" parent="." instance=ExtResource("9_2p1rr")]
+position = Vector2(2181, 312)
