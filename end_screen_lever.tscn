@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce47gee2yfdd0"]
+
+[ext_resource type="Script" path="res://end_screen_lever.gd" id="1_3u42h"]
+[ext_resource type="Texture2D" uid="uid://dvyp84eryepft" path="res://assets/scavenger_tileset_1.png" id="2_74avd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_titw6"]
+size = Vector2(15, 9)
+
+[node name="endScreen_lever" type="Area2D"]
+script = ExtResource("1_3u42h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_74avd")
+region_enabled = true
+region_rect = Rect2(96, 54, 15, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_titw6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

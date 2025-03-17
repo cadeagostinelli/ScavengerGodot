@@ -24,10 +24,13 @@ var wall_jump_timer = 0.0
 var was_on_wall = false
 var is_climbing_ladder: bool = false 
 
-var score: int = 0
+
 
 func _ready():
 	add_to_group("player")
+	print("Current Score: ", GlobalScore.globalScore)
+	print("Current high score: ",Saveload.highest_record)
+	update_score_display()
 	for spike in get_tree().get_nodes_in_group("spikes"):
 		spike.add_to_group("spikes")  # Ensures all spikes are in the group
 	var audio_player1 = AudioStreamPlayer.new()
@@ -157,6 +160,7 @@ func take_damage(amount):
 
 func die():
 	print("Player has died!")
+	GlobalScore.reset_score()
 	var camera = get_viewport().get_camera_2d()
 	if camera:
 		if camera.get_parent() == self:
@@ -169,9 +173,9 @@ func die():
 	queue_free()
 
 func add_treasure(amount: int) -> void:
-	score += amount
+	GlobalScore.add_score(amount)
 	update_score_display()  # Update score display
 
 # Update score in the UI
 func update_score_display() -> void:
-	score_label.text = "Treasure: " + str(score)
+	score_label.text = "Treasure: " + str(GlobalScore.globalScore)

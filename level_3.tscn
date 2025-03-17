@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://owliqyrc4tei"]
+[gd_scene load_steps=9 format=4 uid="uid://owliqyrc4tei"]
 
 [ext_resource type="TileSet" uid="uid://c1gcoa3bibke4" path="res://TileSet.tres" id="1_1pq7f"]
 [ext_resource type="PackedScene" uid="uid://b52u7nye2n7xk" path="res://player.tscn" id="2_smnek"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://vp850jto3aqg" path="res://chest.tscn" id="5_v46j3"]
 [ext_resource type="Texture2D" uid="uid://dgruts58hxj4b" path="res://assets/2d_light.png" id="6_nx1w6"]
 [ext_resource type="PackedScene" uid="uid://boryyip7wsqad" path="res://spikes.tscn" id="8_0ycbb"]
+[ext_resource type="PackedScene" uid="uid://ce47gee2yfdd0" path="res://end_screen_lever.tscn" id="8_wj787"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -534,3 +535,6 @@ position = Vector2(1320, 553)
 
 [node name="Spikes137" parent="." instance=ExtResource("8_0ycbb")]
 position = Vector2(1336, 553)
+
+[node name="endScreen_lever" parent="." instance=ExtResource("8_wj787")]
+position = Vector2(1865, 699)
