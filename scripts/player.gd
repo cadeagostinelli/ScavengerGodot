@@ -159,7 +159,6 @@ func take_damage(amount):
 		die()
 
 func die():
-	print("Player has died!")
 	GlobalScore.reset_score()
 	var camera = get_viewport().get_camera_2d()
 	if camera:
@@ -168,10 +167,12 @@ func die():
 			get_parent().add_child(camera)
 	var death_screen = death_screen_scene.instantiate()
 	get_tree().current_scene.add_child(death_screen)
-	var player_position = global_position
-	death_screen.show_death_screen(player_position)
+	
+	# Make sure to show the death screen
+	death_screen.show_death_screen()
+	
+	# Optionally free the player after a delay
 	queue_free()
-
 func add_treasure(amount: int) -> void:
 	GlobalScore.add_score(amount)
 	update_score_display()  # Update score display

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce47gee2yfdd0"]
+[gd_scene load_steps=5 format=3 uid="uid://p3sonvvfqdde"]
 
 [ext_resource type="Script" path="res://end_screen_lever.gd" id="1_3u42h"]
+[ext_resource type="PackedScene" uid="uid://ffpqdaggcac3" path="res://endscreen.tscn" id="2_4cg1f"]
 [ext_resource type="Texture2D" uid="uid://dvyp84eryepft" path="res://assets/scavenger_tileset_1.png" id="2_74avd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_titw6"]
@@ -8,6 +9,7 @@ size = Vector2(15, 9)
 
 [node name="endScreen_lever" type="Area2D"]
 script = ExtResource("1_3u42h")
+end_screen_scene = ExtResource("2_4cg1f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_74avd")

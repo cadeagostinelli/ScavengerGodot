@@ -11,9 +11,6 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("7_4gmre")]
-position = Vector2(57, 76)
-
 [node name="Vase" parent="." instance=ExtResource("1_p44n5")]
 position = Vector2(984, 201)
 
@@ -106,6 +103,9 @@ energy = 2.71
 
 [node name="Spikes" parent="." groups=["spikes"] instance=ExtResource("8_wwpqk")]
 position = Vector2(120, 233)
+
+[node name="Player" parent="." instance=ExtResource("7_4gmre")]
+position = Vector2(57, 76)
 
 [node name="Spikes2" parent="." instance=ExtResource("8_wwpqk")]
 position = Vector2(136, 233)

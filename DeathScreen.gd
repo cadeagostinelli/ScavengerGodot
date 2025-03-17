@@ -1,35 +1,27 @@
-extends Control
+extends CanvasLayer
 
 func _ready() -> void:
-	# Don't want to see it unless called
 	visible = false
 	
-	# Set up as fullscreen overlay
-	anchor_right = 1
-	anchor_bottom = 1
-	offset_right = 0
-	offset_bottom = 0
-	
-	# Make sure it fills the whole screen
-	grow_horizontal = 2
-	grow_vertical = 2 
-	
-	# Center the VBoxContainer
 	var vbox = $VBoxContainer
-	vbox.size_flags_horizontal = SIZE_FILL
-	vbox.size_flags_vertical = SIZE_FILL
+	vbox.size_flags_horizontal = Control.SIZE_FILL
+	vbox.size_flags_vertical = Control.SIZE_FILL
 	vbox.alignment = BoxContainer.ALIGNMENT_CENTER
-	
-	# Adjust label font size
-	var label = $VBoxContainer/Label
-	label.add_theme_font_size_override("font_size", 32)
-	
-	# Set button size directly
-	var button = $VBoxContainer/Button
-	button.custom_minimum_size = Vector2(200, 50)
 
-func show_death_screen(death_position = null):
-	visible = true
+	var label = $VBoxContainer/Label
+	label.text = "You Died!"
+	label.add_theme_font_size_override("font_size", 16)
+
+	var button = $VBoxContainer/Button
+	button.text = "Retry"
+	button.custom_minimum_size = Vector2(100, 25)
+
+	button.connect("pressed", Callable(self, "_on_retry_button_pressed"))
+	
+	vbox.position = Vector2(100, 50)
 
 func _on_retry_button_pressed():
 	get_tree().reload_current_scene()
+
+func show_death_screen():
+	visible = true

@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://du5i8xh3wmk86" path="res://collectables/scences/coin.tscn" id="4_frlg1"]
 [ext_resource type="PackedScene" uid="uid://c1isn1mojmwvs" path="res://wall_stick_item.tscn" id="5_yfiwj"]
 [ext_resource type="Texture2D" uid="uid://dgruts58hxj4b" path="res://assets/2d_light.png" id="6_oxnbq"]
-[ext_resource type="PackedScene" path="res://treasure_ui.tscn" id="7_4bkuc"]
-[ext_resource type="PackedScene" path="res://vase.tscn" id="8_fhvo1"]
-[ext_resource type="PackedScene" path="res://chest.tscn" id="9_jmot6"]
+[ext_resource type="PackedScene" uid="uid://bita7c3kpl02b" path="res://treasure_ui.tscn" id="7_4bkuc"]
+[ext_resource type="PackedScene" uid="uid://dlc70ob1qm536" path="res://vase.tscn" id="8_fhvo1"]
+[ext_resource type="PackedScene" uid="uid://vp850jto3aqg" path="res://chest.tscn" id="9_jmot6"]
 
 [node name="TestLevel" type="Node2D"]
 
