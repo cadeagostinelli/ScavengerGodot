@@ -2,13 +2,13 @@
 
 [ext_resource type="TileSet" uid="uid://c1gcoa3bibke4" path="res://TileSet.tres" id="1_e410b"]
 [ext_resource type="PackedScene" uid="uid://b52u7nye2n7xk" path="res://player.tscn" id="2_6l26o"]
-[ext_resource type="PackedScene" uid="uid://bita7c3kpl02b" path="res://treasure_ui.tscn" id="3_pa7lo"]
-[ext_resource type="PackedScene" uid="uid://vp850jto3aqg" path="res://chest.tscn" id="4_p0rwi"]
+[ext_resource type="PackedScene" path="res://treasure_ui.tscn" id="3_pa7lo"]
+[ext_resource type="PackedScene" uid="uid://d3i1omc38x6vw" path="res://chest.tscn" id="4_p0rwi"]
 [ext_resource type="Texture2D" uid="uid://dgruts58hxj4b" path="res://assets/2d_light.png" id="5_kt5lw"]
-[ext_resource type="PackedScene" uid="uid://dlc70ob1qm536" path="res://vase.tscn" id="6_5rqyo"]
+[ext_resource type="PackedScene" path="res://vase.tscn" id="6_5rqyo"]
 [ext_resource type="PackedScene" uid="uid://boryyip7wsqad" path="res://spikes.tscn" id="7_nj60f"]
-[ext_resource type="PackedScene" uid="uid://cdlvcb8y2ix4b" path="res://next_level.tscn" id="8_mj1qg"]
-[ext_resource type="PackedScene" uid="uid://btxi65bvvbchk" path="res://special_level_switch.tscn" id="9_2p1rr"]
+[ext_resource type="PackedScene" path="res://next_level.tscn" id="8_mj1qg"]
+[ext_resource type="PackedScene" path="res://special_level_switch.tscn" id="9_2p1rr"]
 
 [node name="Node2D" type="Node2D"]
 

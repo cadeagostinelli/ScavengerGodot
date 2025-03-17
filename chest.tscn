@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://vp850jto3aqg"]
+[gd_scene load_steps=8 format=3 uid="uid://d3i1omc38x6vw"]
 
 [ext_resource type="Script" path="res://scripts/chest.gd" id="1_8tfmj"]
 [ext_resource type="Texture2D" uid="uid://dvyp84eryepft" path="res://assets/scavenger_tileset_1.png" id="2_lj4mb"]
+[ext_resource type="AudioStream" uid="uid://c4impmtsfsm2h" path="res://audio/diamond.wav" id="3_ggms3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pr77d"]
 size = Vector2(48, 28)
@@ -35,5 +36,8 @@ texture = SubResource("AtlasTexture_n2lbq")
 [node name="Diamond" type="Sprite2D" parent="."]
 visible = false
 texture = SubResource("AtlasTexture_m0trk")
+
+[node name="Diamondsound" type="AudioStreamPlayer" parent="Diamond"]
+stream = ExtResource("3_ggms3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
