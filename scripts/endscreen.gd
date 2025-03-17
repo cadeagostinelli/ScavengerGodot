@@ -24,9 +24,11 @@ func _ready() -> void:
 	button.connect("pressed", Callable(self, "_on_restart_button_pressed"))
 	
 	vbox.position = Vector2(175, 100)
+	BackgroundMusic.stop_music()
+	BackgroundMusic.play_win_music()
 	
 func _on_restart_button_pressed():
 	get_tree().change_scene_to_file("res://level_1REAL.tscn")
-
+	BackgroundMusic.play_background_music()
 func show_end_screen() -> void:
 	visible = true
