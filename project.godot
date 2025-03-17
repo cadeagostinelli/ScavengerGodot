@@ -21,6 +21,7 @@ EventController="*res://scripts/event_controller.gd"
 GameController="*res://scripts/game_controller.gd"
 GlobalScore="*res://scripts/GlobalScore.gd"
 Saveload="*res://saveload.gd"
+BackgroundMusic="*res://BackgroundMusic.tscn"
 
 [display]
 

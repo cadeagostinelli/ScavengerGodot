@@ -12,6 +12,7 @@ var can_pick_up: bool = false
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body.is_in_group("player") and can_pick_up:
 		body.add_treasure(value) 
+		$CoinAudio.play()
 		queue_free() 
 
 # Called when the node is ready
@@ -24,7 +25,10 @@ func _ready() -> void:
 	timer.connect("timeout", Callable(self, "_on_timeout"))
 
 	timer.start()
-
+	var audio_player = AudioStreamPlayer.new()
+	add_child(audio_player)
+	audio_player.stream = preload("res://audio/coin.wav")
+	audio_player.name = "CoinAudio"
 func _on_timeout() -> void:
 	can_pick_up = true  
 	for body in area.get_overlapping_bodies():

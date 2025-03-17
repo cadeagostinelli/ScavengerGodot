@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxkuox8djgly5"]
+[gd_scene load_steps=7 format=3 uid="uid://bxkuox8djgly5"]
 
 [ext_resource type="Script" path="res://scripts/treasure.gd" id="1_3gx7p"]
 [ext_resource type="Texture2D" uid="uid://dvyp84eryepft" path="res://assets/scavenger_tileset_1.png" id="2_ltdfm"]
+[ext_resource type="AudioStream" uid="uid://sagmm46mio40" path="res://audio/coin.wav" id="3_7x3wv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mvpaa"]
 atlas = ExtResource("2_ltdfm")
@@ -28,3 +29,6 @@ shape = SubResource("RectangleShape2D_3lpeh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_e5pxa")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7x3wv")
