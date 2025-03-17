@@ -19,8 +19,11 @@ func _ready() -> void:
 	var button = $VBoxContainer/Button
 	button.text = "Restart"
 	button.custom_minimum_size = Vector2(200, 50)
+	
 
 	button.connect("pressed", Callable(self, "_on_restart_button_pressed"))
+	
+	vbox.position = Vector2(175, 100)
 	
 func _on_restart_button_pressed():
 	get_tree().change_scene_to_file("res://level_1REAL.tscn")

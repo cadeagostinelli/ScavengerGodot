@@ -18,7 +18,7 @@ func _ready() -> void:
 
 	button.connect("pressed", Callable(self, "_on_retry_button_pressed"))
 	
-	vbox.position = Vector2(100, 50)
+	vbox.position = Vector2(175, 100)
 
 func _on_retry_button_pressed():
 	get_tree().reload_current_scene()

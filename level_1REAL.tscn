@@ -186,3 +186,10 @@ position = Vector2(1272, 233)
 
 [node name="NextLevel" parent="." instance=ExtResource("8_blr2h")]
 position = Vector2(1625, 101)
+
+[node name="PointLight2D6" type="PointLight2D" parent="."]
+position = Vector2(1242, 107)
+scale = Vector2(1.5, 1.39063)
+texture = ExtResource("6_7253k")
+offset = Vector2(100, 0)
+texture_scale = 0.5
