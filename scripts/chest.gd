@@ -4,6 +4,7 @@ extends Area2D
 @onready var open_sprite = $OpenChest
 @onready var closed_sprite = $ClosedChest 
 @export var treasure_value: int = 300 
+@onready var diamondsound = $diamondsound
 
 var opened = false 
 
@@ -17,6 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 		closed_sprite.hide()
 		open_sprite.show()
 		diamond.show()
+		diamondsound.play()
 		diamond.global_position = global_position + Vector2(0, -20)
 		await get_tree().create_timer(1.0).timeout  
 		diamond.hide()
