@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://b4x8us7r8cm5h"]
 
 [ext_resource type="PackedScene" uid="uid://dlc70ob1qm536" path="res://vase.tscn" id="1_p44n5"]
-[ext_resource type="PackedScene" uid="uid://vp850jto3aqg" path="res://chest.tscn" id="2_m7k50"]
+[ext_resource type="PackedScene" uid="uid://d3i1omc38x6vw" path="res://chest.tscn" id="2_m7k50"]
 [ext_resource type="TileSet" uid="uid://c1gcoa3bibke4" path="res://TileSet.tres" id="3_ffpaq"]
 [ext_resource type="PackedScene" uid="uid://bita7c3kpl02b" path="res://treasure_ui.tscn" id="5_muevk"]
 [ext_resource type="Texture2D" uid="uid://dgruts58hxj4b" path="res://assets/2d_light.png" id="6_7253k"]

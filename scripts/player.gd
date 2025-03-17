@@ -24,6 +24,8 @@ var wall_jump_timer = 0.0
 var was_on_wall = false
 var is_climbing_ladder: bool = false 
 
+var can_move: bool = true
+
 
 
 func _ready():
@@ -44,7 +46,15 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	var ladderCollider = ladder_ray_cast.get_collider()
-
+	var end_screen = get_tree().current_scene.get_node_or_null("CanvasLayer/VBoxContainer")
+	
+	if end_screen and end_screen.visible:
+		velocity = Vector2.ZERO
+		return
+	if not can_move:
+		velocity = Vector2.ZERO
+		return
+	
 	if ladderCollider:
 		_ladder_climb(delta)
 		wall_stick_enabled = false

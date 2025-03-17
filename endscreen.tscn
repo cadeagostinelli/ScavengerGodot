@@ -18,3 +18,11 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="VBoxContainer"]
+position = Vector2(0, 27)
+editor_only = true
+energy = 3.45
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
