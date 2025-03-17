@@ -170,7 +170,8 @@ func die():
 	
 	# Make sure to show the death screen
 	death_screen.show_death_screen()
-	
+	BackgroundMusic.stop_music()
+	BackgroundMusic.play_game_over_music()
 	# Optionally free the player after a delay
 	queue_free()
 func add_treasure(amount: int) -> void:

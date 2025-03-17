@@ -22,6 +22,6 @@ func _ready() -> void:
 
 func _on_retry_button_pressed():
 	get_tree().reload_current_scene()
-
+	BackgroundMusic.play_background_music()
 func show_death_screen():
 	visible = true
